@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Technical Appendix | Your Name</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<header>
+  <h1>Technical Appendix</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+  </nav>
+</header>
+
+<section>
+
+<h2>Sample SQL</h2>
+<pre>
+SELECT
+  territory,
+  segment,
+  SUM(available_seats) AS seats,
+  SUM(revenue) AS total_revenue
+FROM accounts
+GROUP BY territory, segment;
+</pre>
+
+<h2>Forecast Logic</h2>
+<pre>
+Expected Revenue =
+Pipeline Amount × Win Rate Assumption
+</pre>
+
+<h2>Adoption Risk Tier Logic</h2>
+<ul>
+  <li>At Risk: declining adoption or renewal within 90 days</li>
+  <li>Stable: consistent usage above threshold</li>
+  <li>No Adoption: minimal engagement signal</li>
+</ul>
+
+</section>
+
+<footer>
+  <p>© 2026 Your Name</p>
+</footer>
+
+</body>
+</html>
