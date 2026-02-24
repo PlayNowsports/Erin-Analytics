@@ -3,35 +3,128 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TAM + Prioritization | Gron</title>
+  <title>GTM TAM + Prioritization Engine | Erin Nelson</title>
   <link rel="stylesheet" href="../assets/css/styles.css">
+  <style>
+    .section { margin: 30px 0; }
+    .impact { font-size: 1.5em; font-weight: bold; color: #0052cc; margin: 15px 0; }
+    figure { margin: 20px 0; text-align: center; }
+    figcaption { font-style: italic; color: #555; margin-top: 8px; }
+    ul { line-height: 1.6; }
+    .visual-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; }
+  </style>
 </head>
 <body>
 
 <header>
   <h1>GTM TAM + Prioritization Engine</h1>
+  <p>Market sizing, adoption risk segmentation, and territory planning model at Pearson</p>
   <nav><a href="../index.html">Home</a> | <a href="../projects.html">Projects</a></nav>
 </header>
 
-<section>
-  <h2>Outcome</h2>
-  <p class="impact">+35% revenue density in high-priority territories</p>
-
-  <figure>
-    <img src="../assets/images/tam-heatmap.png" alt="Revenue Potential vs Adoption Risk Heatmap">
-    <figcaption>Heatmap: Opportunity scoring by territory & segment</figcaption>
-  </figure>
-
-  <figure>
-    <img src="../assets/images/prioritization-quadrant.png" alt="4-Quadrant Prioritization">
-    <figcaption>Quadrant view: High-potential / Low-risk focus areas</figcaption>
-  </figure>
-
-  <p><strong>Approach:</strong> Seat-based TAM + adoption tiers + revenue scoring → dynamic territory allocation.</p>
-  <p><strong>Tools:</strong> SQL → Python → Tableau</p>
+<section class="section">
+  <h2>Project Summary</h2>
+  <p class="impact">Transformed reactive GTM into data-driven prioritization: quantified account-level TAM, built 12-box segmentation, and optimized territories for maximum incremental revenue.</p>
+  <p>Replaced opinion-based planning with a structured framework tied to penetration, potential, and risk — shifting focus from "what feels important" to "what the data supports."</p>
 </section>
 
-<footer><p>© 2026 Gron</p></footer>
+<section class="section">
+  <h2>Project Environment</h2>
+  <ul>
+    <li>High-growth education technology company (Pearson) with fragmented institutional data and uneven penetration across higher-ed segments.</li>
+    <li>Reactive revenue strategy: territory assignments opinion-driven, forecasting ungrounded in segmentation.</li>
+    <li>Leadership needed defensible answers to: "Where should we focus, and why?" amid misaligned rep coverage and hidden upside/risk.</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2>Scope</h2>
+  <p>Design and implement a TAM-driven prioritization system to:</p>
+  <ul>
+    <li>Calculate institution-level TAM</li>
+    <li>Segment by penetration and revenue potential</li>
+    <li>Identify expansion, defend, optimize, and de-prioritize tiers</li>
+    <li>Drive territory realignment, rep focus, forecast assumptions, and resource allocation</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2>Project Steps</h2>
+  <ol>
+    <li>Construct account-level TAM (adjusted for fit and conversion likelihood)</li>
+    <li>Calculate penetration (% = Actual Revenue / TAM)</li>
+    <li>Build 12-box matrix: Revenue/Potential Tier × Penetration Level</li>
+    <li>Derive prioritization tiers and actions (Expansion, Defend, Optimize, De-Prioritize)</li>
+    <li>Roll up to territory level for imbalance analysis and reallocation modeling</li>
+    <li>Embed into forecasting and executive visibility processes</li>
+  </ol>
+</section>
+
+<section class="section">
+  <h2>Data Sources and Data Gathering</h2>
+  <ul>
+    <li>Enrollment size (institutional data feeds)</li>
+    <li>Historical revenue and product penetration rates (internal CRM/ERP)</li>
+    <li>Adoption patterns and discipline distribution (usage logs)</li>
+    <li>Territory alignment and historical growth trends (sales ops database)</li>
+  </ul>
+  <p>All normalized to account-level granularity via SQL joins and Python preprocessing.</p>
+</section>
+
+<section class="section">
+  <h2>Data Checks</h2>
+  <ul>
+    <li>Duplicate account validation and deduplication</li>
+    <li>Missing value imputation for enrollment/discipline fields</li>
+    <li>Outlier detection on TAM calculations (capped extreme values)</li>
+    <li>Penetration sanity checks (0–100% range enforcement)</li>
+    <li>Cross-validation against known high/low performers</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2>Summary Metrics</h2>
+  <ul>
+    <li>TAM identified: $XXM+ across institutions</li>
+    <li>High TAM / Low Penetration accounts: $45M+ expansion opportunity</li>
+    <li>Revenue density uplift in prioritized territories: +35%</li>
+    <li>Renewal risk flagged in high-dependency accounts</li>
+    <li>Territory reallocation potential: reduced imbalance by reallocating headcount to high-density regions</li>
+  </ul>
+  <div class="visual-grid">
+    <figure>
+      <img src="../assets/images/tam-heatmap.png" alt="TAM Heatmap">
+      <figcaption>TAM vs Actual Revenue Heatmap by Territory & Segment (use style from image:7 or image:8)</figcaption>
+    </figure>
+    <figure>
+      <img src="../assets/images/12-box-matrix.png" alt="12-Box Matrix">
+      <figcaption>12-Box Segmentation: Revenue Potential vs Penetration (use style from image:11 or image:12)</figcaption>
+    </figure>
+    <figure>
+      <img src="../assets/images/prioritization-quadrant.png" alt="Prioritization Quadrant">
+      <figcaption>Prioritization Quadrant Scatter (use style from image:13 or image:14)</figcaption>
+    </figure>
+    <figure>
+      <img src="../assets/images/impact-waterfall.png" alt="Impact Waterfall">
+      <figcaption>Business Impact Waterfall from Model (use style from image:4)</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Findings</h2>
+  <ul>
+    <li>Concentration of high-TAM institutions in low-penetration tiers → major expansion opportunity left on table</li>
+    <li>Territories overloaded with low-potential accounts → rep capacity misaligned</li>
+    <li>Reps defending saturated accounts with minimal upside → reallocation created headroom</li>
+    <li>Mid-tier accounts showed high growth potential but low engagement → targeted plays unlocked incremental revenue</li>
+    <li>Overall: Created standardized GTM language, grounded forecasts in data, and enabled defensible resource decisions</li>
+  </ul>
+</section>
+
+<footer>
+  <p>© 2026 Erin Nelson | Tools: SQL • Python • Tableau</p>
+</footer>
 
 </body>
 </html>
