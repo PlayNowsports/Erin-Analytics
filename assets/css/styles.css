@@ -1,7 +1,131 @@
-.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-.card { text-align: center; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-.impact { font-size: 1.4em; font-weight: 700; color: #0052cc; margin: 12px 0; }
-.main-visual { width: 100%; height: auto; display: block; }
-.impact-hero { text-align: center; padding: 40px 20px; background: #f8f9fa; }
-.impact-hero ul { list-style: none; padding: 0; font-size: 1.2em; }
-.impact-hero li { margin: 12px 0; }
+/* Modern, clean, professional CSS for GTM Analytics Portfolio */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  color: #1f2937;
+  background: #f9fafb;
+}
+
+header {
+  background: linear-gradient(135deg, #1e40af, #3b82f6);
+  color: white;
+  text-align: center;
+  padding: 60px 20px 40px;
+}
+
+header h1 {
+  font-size: 3rem;
+  margin-bottom: 8px;
+}
+
+header p {
+  font-size: 1.3rem;
+  opacity: 0.9;
+}
+
+nav {
+  margin-top: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 20px;
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+
+nav a:hover {
+  opacity: 0.8;
+}
+
+section {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.impact-hero, .section {
+  background: white;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  margin-bottom: 40px;
+}
+
+.impact {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1d4ed8;
+  margin: 16px 0;
+}
+
+.projects-grid, .visual-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+}
+
+.card h3 {
+  padding: 20px 20px 8px;
+  font-size: 1.4rem;
+}
+
+.main-visual, img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+figure {
+  margin: 0;
+}
+
+figcaption {
+  padding: 12px;
+  font-size: 0.95rem;
+  color: #6b7280;
+  background: #f3f4f6;
+}
+
+ul, ol {
+  margin-left: 24px;
+  margin-bottom: 16px;
+}
+
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  color: #6b7280;
+  font-size: 0.95rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  header { padding: 40px 15px 30px; }
+  header h1 { font-size: 2.5rem; }
+  section { padding: 0 15px; }
+}
