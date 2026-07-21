@@ -1,51 +1,114 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Technical Appendix | Your Name</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Methodology — Cadence RevOps</title>
+  <meta name="description" content="How Cadence works: the technical method behind TAM sizing, forecasting, segmentation, and revenue simulators.">
   <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B0F0E'/%3E%3Cpath d='M6 20 L12 20 L15 9 L18 24 L21 13 L26 13' fill='none' stroke='%23CBF24A' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 </head>
 <body>
 
-<header>
-  <h1>Technical Appendix</h1>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="projects.html">Projects</a>
-  </nav>
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="brand"><svg class="brand__mark" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#141A17" stroke="#26302A"/><path d="M6 20 L12 20 L15 9 L18 24 L21 13 L26 13" fill="none" stroke="#CBF24A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Cad<em>e</em>nce</a>
+    <div class="nav__links" id="navLinks">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#approach">Approach</a>
+      <a href="projects.html">Work</a>
+      <a href="appendix.html">Methodology</a>
+      <a href="index.html#contact" class="nav__cta">Book a call</a>
+    </div>
+    <button class="nav__toggle" id="navToggle" aria-label="Menu">≡</button>
+  </div>
+</nav>
+
+<header class="study-hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">Cadence</a><span>/</span>Methodology</div>
+    <span class="eyebrow reveal">Under the hood</span>
+    <h1 class="reveal" data-delay="1">The technical method.</h1>
+    <p class="lede reveal" data-delay="2">RevOps only holds up if the math does. Here's the logic Cadence uses to size markets, forecast pipeline, score risk, and build simulators — the same primitives behind every case study.</p>
+  </div>
 </header>
 
-<section>
+<section style="padding-top:0">
+  <div class="wrap study-body" style="max-width:860px">
 
-<h2>Sample SQL</h2>
-<pre>
-SELECT
-  territory,
-  segment,
-  SUM(available_seats) AS seats,
-  SUM(revenue) AS total_revenue
-FROM accounts
-GROUP BY territory, segment;
-</pre>
+    <div class="block reveal">
+      <span class="eyebrow">01 — Market sizing</span>
+      <h2 style="margin-top:14px">Account-level TAM &amp; penetration</h2>
+      <p>Every account gets a fitted addressable value, then a penetration ratio. That ratio is what drives the 12-box: high value + low penetration is where the incremental dollar hides.</p>
+      <div class="code"><span class="cm">-- Account TAM roll-up with penetration</span>
+<span class="kw">SELECT</span>
+  a.territory,
+  a.segment,
+  <span class="fn">SUM</span>(a.fitted_tam)                         <span class="kw">AS</span> tam,
+  <span class="fn">SUM</span>(a.actual_revenue)                     <span class="kw">AS</span> revenue,
+  <span class="fn">ROUND</span>(<span class="fn">SUM</span>(a.actual_revenue)
+        / <span class="fn">NULLIF</span>(<span class="fn">SUM</span>(a.fitted_tam),0), 3)  <span class="kw">AS</span> penetration
+<span class="kw">FROM</span> accounts a
+<span class="kw">WHERE</span> a.fit_flag = <span class="kw">TRUE</span>
+<span class="kw">GROUP BY</span> a.territory, a.segment
+<span class="kw">ORDER BY</span> tam <span class="kw">DESC</span>;</div>
+    </div>
 
-<h2>Forecast Logic</h2>
-<pre>
-Expected Revenue =
-Pipeline Amount × Win Rate Assumption
-</pre>
+    <div class="block reveal">
+      <span class="eyebrow">02 — Forecast</span>
+      <h2 style="margin-top:14px">Scenario-weighted revenue</h2>
+      <p>The forecast is never a single line. Expected revenue is stage-weighted pipeline plus retained base, run across conservative / base / stretch scenarios so leadership sees the range, not a false point estimate.</p>
+      <div class="code"><span class="cm"># Scenario-weighted expected revenue</span>
+expected = base_retained + sum(
+    stage_amount[s] * win_rate[s] * scenario_factor
+    <span class="kw">for</span> s <span class="kw">in</span> pipeline_stages
+)
+<span class="cm"># scenario_factor: conservative 0.85 | base 1.00 | stretch 1.15</span>
+coverage_needed = target / blended_win_rate</div>
+    </div>
 
-<h2>Adoption Risk Tier Logic</h2>
-<ul>
-  <li>At Risk: declining adoption or renewal within 90 days</li>
-  <li>Stable: consistent usage above threshold</li>
-  <li>No Adoption: minimal engagement signal</li>
-</ul>
+    <div class="block reveal">
+      <span class="eyebrow">03 — Risk</span>
+      <h2 style="margin-top:14px">Adoption risk tiering</h2>
+      <p>Renewal risk is a signal, not a surprise. Accounts are tiered on usage trend, engagement depth, and renewal proximity so intervention happens while it still matters.</p>
+      <ul>
+        <li><strong>At risk</strong> — declining adoption or renewal inside 90 days with weak engagement.</li>
+        <li><strong>Watch</strong> — flat usage, single-threaded, or below the healthy-usage threshold.</li>
+        <li><strong>Stable</strong> — consistent multi-user adoption above threshold with expansion signal.</li>
+      </ul>
+    </div>
 
+    <div class="block reveal">
+      <span class="eyebrow">04 — Data integrity</span>
+      <h2 style="margin-top:14px">Checks before conclusions</h2>
+      <p>No model ships without validation. Standard gates on every engagement:</p>
+      <ul>
+        <li>Duplicate account detection and deterministic dedup keys.</li>
+        <li>Missing-value imputation for enrollment / firmographic fields.</li>
+        <li>Outlier capping on TAM so a few giants don't distort territory rollups.</li>
+        <li>Penetration bounded to a sane 0–100% range.</li>
+        <li>Cross-validation against known high and low performers.</li>
+      </ul>
+    </div>
+
+    <div class="block reveal">
+      <span class="eyebrow">05 — Simulators</span>
+      <h2 style="margin-top:14px">From model to lever</h2>
+      <p>The final step turns a static model into a tool leadership can steer. Inputs — headcount, quota, ramp, win rate, pricing — become live sliders; outputs — bookings, coverage, attainment — recompute instantly, so the trade-off is visible before budget is committed. Try the <a href="index.html#simulators" style="color:var(--signal)">live capacity simulator →</a></p>
+      <div class="callout"><p>A forecast tells you what will happen. A simulator tells you what to do about it.</p></div>
+    </div>
+
+    <div class="study-nav">
+      <a href="projects.html" class="btn btn--ghost">← Back to work</a>
+      <a href="index.html#contact" class="btn btn--primary">Book a call <span class="arw">→</span></a>
+    </div>
+  </div>
 </section>
 
-<footer>
-  <p>© 2026 Your Name</p>
+<footer class="foot">
+  <div class="wrap foot__legal" style="border:none"><span>© 2026 Cadence · Erin Nelson</span><a href="index.html" style="color:var(--fog)">← Back home</a></div>
 </footer>
 
+<script src="assets/js/main.js"></script>
 </body>
 </html>

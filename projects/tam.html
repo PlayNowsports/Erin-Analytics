@@ -3,128 +3,145 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GTM TAM + Prioritization Engine | Erin Nelson</title>
+  <title>GTM TAM &amp; Prioritization Engine — Cadence</title>
+  <meta name="description" content="Case study: account-level TAM sizing and 12-box segmentation that redirected rep capacity toward untapped expansion.">
   <link rel="stylesheet" href="../assets/css/styles.css">
-  <style>
-    .section { margin: 30px 0; }
-    .impact { font-size: 1.5em; font-weight: bold; color: #0052cc; margin: 15px 0; }
-    figure { margin: 20px 0; text-align: center; }
-    figcaption { font-style: italic; color: #555; margin-top: 8px; }
-    ul { line-height: 1.6; }
-    .visual-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; }
-  </style>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B0F0E'/%3E%3Cpath d='M6 20 L12 20 L15 9 L18 24 L21 13 L26 13' fill='none' stroke='%23CBF24A' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 </head>
 <body>
 
-<header>
-  <h1>GTM TAM + Prioritization Engine</h1>
-  <p>Market sizing, adoption risk segmentation, and territory planning model at Pearson</p>
-  <nav><a href="../index.html">Home</a> | <a href="../projects.html">Projects</a></nav>
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="../index.html" class="brand"><svg class="brand__mark" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#141A17" stroke="#26302A"/><path d="M6 20 L12 20 L15 9 L18 24 L21 13 L26 13" fill="none" stroke="#CBF24A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Cad<em>e</em>nce</a>
+    <div class="nav__links" id="navLinks">
+      <a href="../index.html#services">Services</a>
+      <a href="../projects.html">Work</a>
+      <a href="../appendix.html">Methodology</a>
+      <a href="../index.html#contact" class="nav__cta">Book a call</a>
+    </div>
+    <button class="nav__toggle" id="navToggle" aria-label="Menu">≡</button>
+  </div>
+</nav>
+
+<header class="study-hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="../index.html">Cadence</a><span>/</span><a href="../projects.html">Work</a><span>/</span>TAM Engine</div>
+    <span class="eyebrow reveal">GTM Strategy · Market Sizing · Segmentation</span>
+    <h1 class="reveal" data-delay="1">GTM TAM &amp; Prioritization Engine</h1>
+    <p class="lede reveal" data-delay="2">Replaced opinion-driven territory planning with an account-level market model — quantifying TAM, building a 12-box segmentation, and pointing rep capacity at the incremental dollar.</p>
+    <div class="study-meta reveal" data-delay="3">
+      <div><span>Discipline</span><b>GTM Strategy</b></div>
+      <div><span>Stack</span><b>SQL · Python · Tableau</b></div>
+      <div><span>Sector</span><b>B2B / EdTech</b></div>
+      <div><span>Type</span><b>Representative engagement</b></div>
+    </div>
+  </div>
 </header>
 
-<section class="section">
-  <h2>Project Summary</h2>
-  <p class="impact">Transformed reactive GTM into data-driven prioritization: quantified account-level TAM, built 12-box segmentation, and optimized territories for maximum incremental revenue.</p>
-  <p>Replaced opinion-based planning with a structured framework tied to penetration, potential, and risk — shifting focus from "what feels important" to "what the data supports."</p>
-</section>
-
-<section class="section">
-  <h2>Project Environment</h2>
-  <ul>
-    <li>High-growth education technology company (Pearson) with fragmented institutional data and uneven penetration across higher-ed segments.</li>
-    <li>Reactive revenue strategy: territory assignments opinion-driven, forecasting ungrounded in segmentation.</li>
-    <li>Leadership needed defensible answers to: "Where should we focus, and why?" amid misaligned rep coverage and hidden upside/risk.</li>
-  </ul>
-</section>
-
-<section class="section">
-  <h2>Scope</h2>
-  <p>Design and implement a TAM-driven prioritization system to:</p>
-  <ul>
-    <li>Calculate institution-level TAM</li>
-    <li>Segment by penetration and revenue potential</li>
-    <li>Identify expansion, defend, optimize, and de-prioritize tiers</li>
-    <li>Drive territory realignment, rep focus, forecast assumptions, and resource allocation</li>
-  </ul>
-</section>
-
-<section class="section">
-  <h2>Project Steps</h2>
-  <ol>
-    <li>Construct account-level TAM (adjusted for fit and conversion likelihood)</li>
-    <li>Calculate penetration (% = Actual Revenue / TAM)</li>
-    <li>Build 12-box matrix: Revenue/Potential Tier × Penetration Level</li>
-    <li>Derive prioritization tiers and actions (Expansion, Defend, Optimize, De-Prioritize)</li>
-    <li>Roll up to territory level for imbalance analysis and reallocation modeling</li>
-    <li>Embed into forecasting and executive visibility processes</li>
-  </ol>
-</section>
-
-<section class="section">
-  <h2>Data Sources and Data Gathering</h2>
-  <ul>
-    <li>Enrollment size (institutional data feeds)</li>
-    <li>Historical revenue and product penetration rates (internal CRM/ERP)</li>
-    <li>Adoption patterns and discipline distribution (usage logs)</li>
-    <li>Territory alignment and historical growth trends (sales ops database)</li>
-  </ul>
-  <p>All normalized to account-level granularity via SQL joins and Python preprocessing.</p>
-</section>
-
-<section class="section">
-  <h2>Data Checks</h2>
-  <ul>
-    <li>Duplicate account validation and deduplication</li>
-    <li>Missing value imputation for enrollment/discipline fields</li>
-    <li>Outlier detection on TAM calculations (capped extreme values)</li>
-    <li>Penetration sanity checks (0–100% range enforcement)</li>
-    <li>Cross-validation against known high/low performers</li>
-  </ul>
-</section>
-
-<section class="section">
-  <h2>Summary Metrics</h2>
-  <ul>
-    <li>TAM identified: $XXM+ across institutions</li>
-    <li>High TAM / Low Penetration accounts: $45M+ expansion opportunity</li>
-    <li>Revenue density uplift in prioritized territories: +35%</li>
-    <li>Renewal risk flagged in high-dependency accounts</li>
-    <li>Territory reallocation potential: reduced imbalance by reallocating headcount to high-density regions</li>
-  </ul>
-  <div class="visual-grid">
-    <figure>
-      <img src="../assets/images/tam-heatmap.png" alt="TAM Heatmap">
-      <figcaption>TAM vs Actual Revenue Heatmap by Territory & Segment (use style from image:7 or image:8)</figcaption>
-    </figure>
-    <figure>
-      <img src="../assets/images/12-box-matrix.png" alt="12-Box Matrix">
-      <figcaption>12-Box Segmentation: Revenue Potential vs Penetration (use style from image:11 or image:12)</figcaption>
-    </figure>
-    <figure>
-      <img src="../assets/images/prioritization-quadrant.png" alt="Prioritization Quadrant">
-      <figcaption>Prioritization Quadrant Scatter (use style from image:13 or image:14)</figcaption>
-    </figure>
-    <figure>
-      <img src="../assets/images/impact-waterfall.png" alt="Impact Waterfall">
-      <figcaption>Business Impact Waterfall from Model (use style from image:4)</figcaption>
-    </figure>
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="study-kpis reveal">
+      <div class="k"><b>+35%</b><span>Revenue density, prioritized regions</span></div>
+      <div class="k tl"><b>$45M+</b><span>Untapped expansion surfaced</span></div>
+      <div class="k"><b>12-box</b><span>Segmentation framework</span></div>
+      <div class="k tl"><b>1</b><span>Shared GTM language</span></div>
+    </div>
   </div>
 </section>
 
-<section class="section">
-  <h2>Findings</h2>
-  <ul>
-    <li>Concentration of high-TAM institutions in low-penetration tiers → major expansion opportunity left on table</li>
-    <li>Territories overloaded with low-potential accounts → rep capacity misaligned</li>
-    <li>Reps defending saturated accounts with minimal upside → reallocation created headroom</li>
-    <li>Mid-tier accounts showed high growth potential but low engagement → targeted plays unlocked incremental revenue</li>
-    <li>Overall: Created standardized GTM language, grounded forecasts in data, and enabled defensible resource decisions</li>
-  </ul>
+<section style="padding-top:0">
+  <div class="wrap study-body">
+
+    <div class="block reveal">
+      <h2>The situation</h2>
+      <p>A high-growth business with fragmented institutional data and uneven penetration across segments. Territory assignments were opinion-driven and forecasting wasn't grounded in any segmentation. Leadership needed a defensible answer to one question: <strong>"Where should we focus, and why?"</strong> — while rep coverage stayed misaligned and upside and risk stayed hidden.</p>
+    </div>
+
+    <div class="block reveal">
+      <h2>Scope</h2>
+      <p>Design and implement a TAM-driven prioritization system to:</p>
+      <ul>
+        <li>Calculate institution-level TAM adjusted for fit and conversion likelihood.</li>
+        <li>Segment accounts by penetration and revenue potential.</li>
+        <li>Identify expansion, defend, optimize, and de-prioritize tiers.</li>
+        <li>Drive territory realignment, rep focus, forecast assumptions, and resource allocation.</li>
+      </ul>
+    </div>
+
+    <div class="block reveal">
+      <h2>The 12-box</h2>
+      <p>The core artifact: a matrix of <strong>revenue potential × penetration</strong>. Each cell carries a prescribed action, turning a spreadsheet of accounts into a prioritized playbook.</p>
+      <figure class="figure">
+        <svg viewBox="0 0 620 300" role="img" aria-label="12-box segmentation matrix of revenue potential versus penetration">
+          <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#8C968E">
+            <text x="10" y="150" transform="rotate(-90 10 150)">REVENUE POTENTIAL →</text>
+            <text x="230" y="292">PENETRATION →</text>
+          </g>
+          <!-- grid 4 cols x 3 rows -->
+          <g>
+            <!-- row 1 (high potential) -->
+            <rect x="70" y="20" width="120" height="76" fill="#CBF24A" opacity="0.92"/><text x="82" y="52" font-family="Bricolage Grotesque" font-weight="700" font-size="13" fill="#0B0F0E">EXPAND</text><text x="82" y="70" font-family="IBM Plex Mono" font-size="9" fill="#0B0F0E">high TAM · low pen</text>
+            <rect x="192" y="20" width="120" height="76" fill="#9db93a" opacity="0.55"/><text x="204" y="52" font-family="Bricolage Grotesque" font-weight="700" font-size="13" fill="#ECEFE9">EXPAND</text>
+            <rect x="314" y="20" width="120" height="76" fill="#5FD3C4" opacity="0.5"/><text x="326" y="52" font-family="Bricolage Grotesque" font-weight="700" font-size="13" fill="#ECEFE9">DEFEND</text>
+            <rect x="436" y="20" width="120" height="76" fill="#5FD3C4" opacity="0.85"/><text x="448" y="52" font-family="Bricolage Grotesque" font-weight="700" font-size="13" fill="#0B0F0E">DEFEND</text>
+            <!-- row 2 -->
+            <rect x="70" y="98" width="120" height="76" fill="#9db93a" opacity="0.45"/><text x="82" y="140" font-family="Bricolage Grotesque" font-weight="700" font-size="13" fill="#ECEFE9">EXPAND</text>
+            <rect x="192" y="98" width="120" height="76" fill="#182019" stroke="#26302A"/><text x="204" y="140" font-family="Bricolage Grotesque" font-weight="700" font-size="13" fill="#8C968E">OPTIMIZE</text>
+            <rect x="314" y="98" width="120" height="76" fill="#182019" stroke="#26302A"/><text x="326" y="140" font-family="Bricolage Grotesque" font-weight="700" font-size="13" fill="#8C968E">OPTIMIZE</text>
+            <rect x="436" y="98" width="120" height="76" fill="#182019" stroke="#26302A"/><text x="448" y="140" font-family="Bricolage Grotesque" font-weight="700" font-size="13" fill="#8C968E">DEFEND</text>
+            <!-- row 3 (low potential) -->
+            <rect x="70" y="176" width="120" height="76" fill="#182019" stroke="#26302A"/><text x="82" y="218" font-family="Bricolage Grotesque" font-weight="700" font-size="13" fill="#8C968E">NURTURE</text>
+            <rect x="192" y="176" width="120" height="76" fill="#182019" stroke="#26302A"/><text x="204" y="218" font-family="Bricolage Grotesque" font-weight="700" font-size="13" fill="#616b64">DE-PRIOR.</text>
+            <rect x="314" y="176" width="120" height="76" fill="#1a1210" stroke="#26302A"/><text x="326" y="218" font-family="Bricolage Grotesque" font-weight="700" font-size="13" fill="#616b64">DE-PRIOR.</text>
+            <rect x="436" y="176" width="120" height="76" fill="#1a1210" stroke="#26302A"/><text x="448" y="218" font-family="Bricolage Grotesque" font-weight="700" font-size="13" fill="#616b64">DE-PRIOR.</text>
+          </g>
+        </svg>
+        <figcaption><b>Fig 1.</b> Revenue potential × penetration, with a prescribed action per cell. High-potential / low-penetration accounts (top-left) are the expansion engine.</figcaption>
+      </figure>
+    </div>
+
+    <div class="block reveal">
+      <h2>How it was built</h2>
+      <ol>
+        <li>Construct account-level TAM, adjusted for fit and conversion likelihood.</li>
+        <li>Calculate penetration as actual revenue ÷ TAM.</li>
+        <li>Build the 12-box matrix: revenue/potential tier × penetration level.</li>
+        <li>Derive prioritization tiers and actions — expand, defend, optimize, de-prioritize.</li>
+        <li>Roll up to territory level for imbalance analysis and reallocation modeling.</li>
+        <li>Embed the output into the forecast and executive visibility processes.</li>
+      </ol>
+      <h3>Data sources</h3>
+      <ul>
+        <li>Enrollment / firmographic size from institutional data feeds.</li>
+        <li>Historical revenue and product penetration from CRM / ERP.</li>
+        <li>Adoption patterns and discipline distribution from usage logs.</li>
+        <li>Territory alignment and growth trends from the sales-ops database.</li>
+      </ul>
+      <p>All normalized to account-level granularity via SQL joins and Python preprocessing, then validated against the <a href="../appendix.html" style="color:var(--signal)">standard data-integrity gates →</a></p>
+    </div>
+
+    <div class="block reveal">
+      <h2>What it found</h2>
+      <ul>
+        <li>A concentration of high-TAM accounts sitting in low-penetration tiers — major expansion left on the table.</li>
+        <li>Territories overloaded with low-potential accounts, misaligning rep capacity.</li>
+        <li>Reps defending saturated accounts with minimal upside — reallocation created headroom.</li>
+        <li>Mid-tier accounts with high growth potential but low engagement — targeted plays unlocked incremental revenue.</li>
+      </ul>
+      <div class="callout"><p>The real deliverable wasn't a chart — it was a shared, defensible language for where revenue attention should go.</p></div>
+    </div>
+
+    <div class="study-nav">
+      <a href="../projects.html" class="btn btn--ghost">← All work</a>
+      <a href="forecasting.html" class="btn btn--ghost">Next: Forecasting →</a>
+    </div>
+  </div>
 </section>
 
-<footer>
-  <p>© 2026 Erin Nelson | Tools: SQL • Python • Tableau</p>
+<footer class="foot">
+  <div class="wrap foot__legal" style="border:none"><span>© 2026 Cadence · Tools: SQL · Python · Tableau</span><a href="../index.html" style="color:var(--fog)">← Back home</a></div>
 </footer>
 
+<script src="../assets/js/main.js"></script>
 </body>
 </html>

@@ -1,39 +1,119 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>GTM TAM Case Study</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adoption Risk Segmentation — Cadence</title>
+  <meta name="description" content="Case study: a cohort risk model that flagged at-risk ARR early and lifted renewals through targeted intervention plays.">
   <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B0F0E'/%3E%3Cpath d='M6 20 L12 20 L15 9 L18 24 L21 13 L26 13' fill='none' stroke='%23CBF24A' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 </head>
 <body>
 
-<header>
-  <h1>GTM TAM + Prioritization Engine</h1>
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="../projects.html">Projects</a>
-  </nav>
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="../index.html" class="brand"><svg class="brand__mark" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#141A17" stroke="#26302A"/><path d="M6 20 L12 20 L15 9 L18 24 L21 13 L26 13" fill="none" stroke="#CBF24A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Cad<em>e</em>nce</a>
+    <div class="nav__links" id="navLinks">
+      <a href="../index.html#services">Services</a>
+      <a href="../projects.html">Work</a>
+      <a href="../appendix.html">Methodology</a>
+      <a href="../index.html#contact" class="nav__cta">Book a call</a>
+    </div>
+    <button class="nav__toggle" id="navToggle" aria-label="Menu">≡</button>
+  </div>
+</nav>
+
+<header class="study-hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="../index.html">Cadence</a><span>/</span><a href="../projects.html">Work</a><span>/</span>Segmentation</div>
+    <span class="eyebrow reveal">Retention · Risk Scoring</span>
+    <h1 class="reveal" data-delay="1">Adoption Risk Segmentation</h1>
+    <p class="lede reveal" data-delay="2">A cohort risk model that turned renewal from a surprise into a signal — flagging at-risk ARR early enough to intervene, and lifting renewal rates through targeted plays instead of blanket outreach.</p>
+    <div class="study-meta reveal" data-delay="3">
+      <div><span>Discipline</span><b>Retention / Risk</b></div>
+      <div><span>Stack</span><b>Python · SQL · Tableau</b></div>
+      <div><span>Signal</span><b>Usage · engagement · tenure</b></div>
+      <div><span>Type</span><b>Representative engagement</b></div>
+    </div>
+  </div>
 </header>
 
-<section>
-  <h2>Problem</h2>
-  <p>Sales targeting lacked structured TAM visibility and risk prioritization.</p>
-
-  <h2>Approach</h2>
-  <p>
-    Built segmentation framework integrating seat counts, adoption signals,
-    and revenue potential across territories.
-  </p>
-
-  <h2>Impact</h2>
-  <p>
-    Enabled structured account prioritization and improved GTM planning clarity.
-  </p>
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="study-kpis reveal">
+      <div class="k"><b>+18%</b><span>Renewal rate lift</span></div>
+      <div class="k tl"><b>$12M</b><span>At-risk ARR flagged early</span></div>
+      <div class="k"><b>3</b><span>Risk tiers</span></div>
+      <div class="k tl"><b>90d</b><span>Intervention lead time</span></div>
+    </div>
+  </div>
 </section>
 
-<footer>
-  <p>© 2026 Your Name</p>
+<section style="padding-top:0">
+  <div class="wrap study-body">
+
+    <div class="block reveal">
+      <h2>The situation</h2>
+      <p>Renewals were being lost the way most renewals are lost — quietly, and then all at once. There was no early-warning system: churn showed up in the renewal report, which is exactly too late to do anything about it. Success capacity was spread evenly across the base instead of aimed where risk actually lived.</p>
+    </div>
+
+    <div class="block reveal">
+      <h2>The model</h2>
+      <p>Every account was scored on three signals — usage trend, engagement depth, and renewal proximity — then sorted into a risk grid. Where an account lands dictates the play: intervene, watch, or grow.</p>
+      <figure class="figure">
+        <svg viewBox="0 0 620 300" role="img" aria-label="Adoption risk matrix of usage trend versus renewal proximity">
+          <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#8C968E">
+            <text x="10" y="170" transform="rotate(-90 10 170)">USAGE TREND →</text>
+            <text x="250" y="292">RENEWAL PROXIMITY →</text>
+          </g>
+          <g>
+            <rect x="70" y="20" width="150" height="76" fill="#5FD3C4" opacity="0.85"/><text x="86" y="55" font-family="Bricolage Grotesque" font-weight="700" font-size="14" fill="#0B0F0E">GROW</text><text x="86" y="74" font-family="IBM Plex Mono" font-size="9" fill="#0B0F0E">healthy · expand</text>
+            <rect x="222" y="20" width="150" height="76" fill="#5FD3C4" opacity="0.5"/><text x="238" y="55" font-family="Bricolage Grotesque" font-weight="700" font-size="14" fill="#ECEFE9">STABLE</text>
+            <rect x="374" y="20" width="150" height="76" fill="#CBF24A" opacity="0.55"/><text x="390" y="55" font-family="Bricolage Grotesque" font-weight="700" font-size="14" fill="#ECEFE9">CONFIRM</text>
+
+            <rect x="70" y="98" width="150" height="76" fill="#5FD3C4" opacity="0.45"/><text x="86" y="140" font-family="Bricolage Grotesque" font-weight="700" font-size="14" fill="#ECEFE9">STABLE</text>
+            <rect x="222" y="98" width="150" height="76" fill="#F2B04A" opacity="0.55"/><text x="238" y="140" font-family="Bricolage Grotesque" font-weight="700" font-size="14" fill="#ECEFE9">WATCH</text>
+            <rect x="374" y="98" width="150" height="76" fill="#F2B04A" opacity="0.8"/><text x="390" y="140" font-family="Bricolage Grotesque" font-weight="700" font-size="14" fill="#0B0F0E">WATCH</text>
+
+            <rect x="70" y="176" width="150" height="76" fill="#F2B04A" opacity="0.6"/><text x="86" y="218" font-family="Bricolage Grotesque" font-weight="700" font-size="14" fill="#ECEFE9">WATCH</text>
+            <rect x="222" y="176" width="150" height="76" fill="#E88A6F" opacity="0.7"/><text x="238" y="218" font-family="Bricolage Grotesque" font-weight="700" font-size="14" fill="#0B0F0E">AT RISK</text>
+            <rect x="374" y="176" width="150" height="76" fill="#E88A6F" opacity="0.92"/><text x="390" y="218" font-family="Bricolage Grotesque" font-weight="700" font-size="14" fill="#0B0F0E">AT RISK</text>
+          </g>
+        </svg>
+        <figcaption><b>Fig 1.</b> Usage trend × renewal proximity. The bottom-right — declining usage near renewal — is where success capacity gets aimed first.</figcaption>
+      </figure>
+    </div>
+
+    <div class="block reveal">
+      <h2>The plays</h2>
+      <ul>
+        <li><strong>At risk</strong> — declining usage inside 90 days of renewal: exec sponsor, value review, and a save plan triggered automatically.</li>
+        <li><strong>Watch</strong> — flat usage or single-threaded: adoption nudges and multi-threading before the tier slips.</li>
+        <li><strong>Grow</strong> — healthy and expanding: routed to expansion motions instead of retention effort.</li>
+      </ul>
+    </div>
+
+    <div class="block reveal">
+      <h2>The outcome</h2>
+      <ul>
+        <li><strong>~$12M of at-risk ARR</strong> surfaced early enough to act on.</li>
+        <li><strong>Renewal rates up ~18%</strong> in the covered cohort via targeted intervention.</li>
+        <li>Success capacity reallocated from blanket check-ins to the accounts that actually needed them.</li>
+      </ul>
+      <div class="callout"><p>Churn stopped being a quarterly autopsy and became a weekly, workable signal.</p></div>
+    </div>
+
+    <div class="study-nav">
+      <a href="dashboard.html" class="btn btn--ghost">← Prev: Dashboard</a>
+      <a href="../projects.html" class="btn btn--ghost">All work →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot__legal" style="border:none"><span>© 2026 Cadence · Erin Nelson</span><a href="../index.html" style="color:var(--fog)">← Back home</a></div>
 </footer>
 
+<script src="../assets/js/main.js"></script>
 </body>
 </html>

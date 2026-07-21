@@ -1,39 +1,113 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>GTM TAM Case Study</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GTM Executive Dashboard — Cadence</title>
+  <meta name="description" content="Case study: a live executive dashboard for win rate, pipeline coverage, and territory health that replaced month-old spreadsheets.">
   <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B0F0E'/%3E%3Cpath d='M6 20 L12 20 L15 9 L18 24 L21 13 L26 13' fill='none' stroke='%23CBF24A' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 </head>
 <body>
 
-<header>
-  <h1>GTM TAM + Prioritization Engine</h1>
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="../projects.html">Projects</a>
-  </nav>
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="../index.html" class="brand"><svg class="brand__mark" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#141A17" stroke="#26302A"/><path d="M6 20 L12 20 L15 9 L18 24 L21 13 L26 13" fill="none" stroke="#CBF24A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Cad<em>e</em>nce</a>
+    <div class="nav__links" id="navLinks">
+      <a href="../index.html#services">Services</a>
+      <a href="../projects.html">Work</a>
+      <a href="../appendix.html">Methodology</a>
+      <a href="../index.html#contact" class="nav__cta">Book a call</a>
+    </div>
+    <button class="nav__toggle" id="navToggle" aria-label="Menu">≡</button>
+  </div>
+</nav>
+
+<header class="study-hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="../index.html">Cadence</a><span>/</span><a href="../projects.html">Work</a><span>/</span>Dashboard</div>
+    <span class="eyebrow reveal">RevOps · Systems · Visibility</span>
+    <h1 class="reveal" data-delay="1">GTM Executive Dashboard</h1>
+    <p class="lede reveal" data-delay="2">One live pane of glass for win rate, pipeline coverage, and territory health — replacing month-old spreadsheets with a single source of truth leadership could open every Monday.</p>
+    <div class="study-meta reveal" data-delay="3">
+      <div><span>Discipline</span><b>RevOps Systems</b></div>
+      <div><span>Stack</span><b>Tableau · SQL · Salesforce</b></div>
+      <div><span>Cadence</span><b>Real-time / weekly</b></div>
+      <div><span>Type</span><b>Representative engagement</b></div>
+    </div>
+  </div>
 </header>
 
-<section>
-  <h2>Problem</h2>
-  <p>Sales targeting lacked structured TAM visibility and risk prioritization.</p>
-
-  <h2>Approach</h2>
-  <p>
-    Built segmentation framework integrating seat counts, adoption signals,
-    and revenue potential across territories.
-  </p>
-
-  <h2>Impact</h2>
-  <p>
-    Enabled structured account prioritization and improved GTM planning clarity.
-  </p>
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="study-kpis reveal">
+      <div class="k"><b>3.2×</b><span>Pipeline coverage tracked</span></div>
+      <div class="k tl"><b>94%</b><span>Forecast accuracy surfaced</span></div>
+      <div class="k"><b>0</b><span>Manual spreadsheet refreshes</span></div>
+      <div class="k tl"><b>1</b><span>Source of truth</span></div>
+    </div>
+  </div>
 </section>
 
-<footer>
-  <p>© 2026 Your Name</p>
+<section style="padding-top:0">
+  <div class="wrap study-body">
+
+    <div class="block reveal">
+      <h2>The situation</h2>
+      <p>Every leadership meeting started with a data argument. Numbers came from three spreadsheets, each a few weeks stale, each maintained by a different person. By the time the "truth" was assembled, it was already out of date — and no two dashboards agreed.</p>
+    </div>
+
+    <div class="block reveal">
+      <h2>The build</h2>
+      <p>A single executive view wired directly to CRM, refreshing on its own. Headline KPIs up top, trend and territory detail below — designed so an exec gets the state of the business in one glance and can drill without a data request.</p>
+      <figure class="figure">
+        <svg viewBox="0 0 620 300" role="img" aria-label="Executive dashboard mockup with KPI tiles, a trend line, and territory bars">
+          <!-- KPI tiles -->
+          <rect x="20" y="20" width="180" height="70" rx="8" fill="#182019" stroke="#26302A"/><text x="36" y="55" fill="#CBF24A" font-family="Bricolage Grotesque" font-size="26" font-weight="800">3.2×</text><text x="36" y="76" fill="#616b64" font-family="IBM Plex Mono" font-size="9">PIPELINE COVERAGE</text>
+          <rect x="212" y="20" width="180" height="70" rx="8" fill="#182019" stroke="#26302A"/><text x="228" y="55" fill="#5FD3C4" font-family="Bricolage Grotesque" font-size="26" font-weight="800">94%</text><text x="228" y="76" fill="#616b64" font-family="IBM Plex Mono" font-size="9">FORECAST ACCURACY</text>
+          <rect x="404" y="20" width="196" height="70" rx="8" fill="#182019" stroke="#26302A"/><text x="420" y="55" fill="#ECEFE9" font-family="Bricolage Grotesque" font-size="26" font-weight="800">28.4%</text><text x="420" y="76" fill="#616b64" font-family="IBM Plex Mono" font-size="9">BLENDED WIN RATE</text>
+          <!-- trend -->
+          <rect x="20" y="106" width="360" height="170" rx="8" fill="#182019" stroke="#26302A"/>
+          <text x="36" y="128" fill="#8C968E" font-family="IBM Plex Mono" font-size="9">BOOKINGS TREND</text>
+          <path d="M40 240 L100 224 L160 230 L220 200 L280 188 L350 156" fill="none" stroke="#CBF24A" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M40 250 L100 244 L160 236 L220 224 L280 214 L350 196" fill="none" stroke="#5FD3C4" stroke-width="1.4" stroke-dasharray="4 4"/>
+          <!-- territory bars -->
+          <rect x="392" y="106" width="208" height="170" rx="8" fill="#182019" stroke="#26302A"/>
+          <text x="408" y="128" fill="#8C968E" font-family="IBM Plex Mono" font-size="9">TERRITORY HEALTH</text>
+          <g>
+            <rect x="408" y="145" width="150" height="12" rx="3" fill="#CBF24A" opacity="0.85"/><rect x="408" y="145" width="176" height="12" rx="3" fill="none"/>
+            <rect x="408" y="170" width="120" height="12" rx="3" fill="#5FD3C4" opacity="0.7"/>
+            <rect x="408" y="195" width="90" height="12" rx="3" fill="#F2B04A" opacity="0.7"/>
+            <rect x="408" y="220" width="60" height="12" rx="3" fill="#E88A6F" opacity="0.75"/>
+            <g font-family="IBM Plex Mono" font-size="8" fill="#616b64"><text x="408" y="142">West</text><text x="408" y="167">Central</text><text x="408" y="192">Northeast</text><text x="408" y="217">South</text></g>
+          </g>
+        </svg>
+        <figcaption><b>Fig 1.</b> Layout logic — headline KPIs, a bookings trend against plan, and territory health ranked by coverage. Illustrative composition.</figcaption>
+      </figure>
+    </div>
+
+    <div class="block reveal">
+      <h2>What changed</h2>
+      <ul>
+        <li>Meetings started with decisions, not data reconciliation.</li>
+        <li>Coverage and win-rate erosion became visible in-week, not at quarter-end.</li>
+        <li>Territory health surfaced where reps needed air cover before the number slipped.</li>
+        <li>Spreadsheet maintenance — and the errors that came with it — went to zero.</li>
+      </ul>
+      <div class="callout"><p>The dashboard didn't just report the business. It set the operating cadence the whole team ran on.</p></div>
+    </div>
+
+    <div class="study-nav">
+      <a href="forecasting.html" class="btn btn--ghost">← Prev: Forecasting</a>
+      <a href="segmentation.html" class="btn btn--ghost">Next: Segmentation →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot__legal" style="border:none"><span>© 2026 Cadence · Erin Nelson</span><a href="../index.html" style="color:var(--fog)">← Back home</a></div>
 </footer>
 
+<script src="../assets/js/main.js"></script>
 </body>
 </html>
